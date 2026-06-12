@@ -7,12 +7,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3100");
+import { SITE_URL } from "@/lib/site";
 
 export default function HomePage() {
   const structuredData = {
@@ -21,7 +16,7 @@ export default function HomePage() {
       {
         "@type": "WebApplication",
         name: "查U地址",
-        url: siteUrl,
+        url: SITE_URL,
         applicationCategory: "FinanceApplication",
         operatingSystem: "Any",
         description:

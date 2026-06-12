@@ -1,12 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3100");
 
 const geist = Geist({
   variable: "--font-sans",
@@ -19,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "安全无痕查 USDT 地址 | 余额与TRC20交易记录",
-    template: "%s | 查U地址"
+    template: `%s | ${SITE_NAME}`
   },
   description:
     "安全无痕查询TRON地址的USDT余额、TRX余额与TRC20交易记录。无需登录、无需连接钱包，本站不保存查询地址和历史记录，数据来自TRON主网。",
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_CN",
     url: "/",
-    siteName: "查U地址"
+    siteName: SITE_NAME
   },
   twitter: {
     card: "summary",

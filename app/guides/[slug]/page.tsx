@@ -12,12 +12,7 @@ import {
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getGuide, guides } from "@/lib/guides";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3100");
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return guides.map((guide) => ({ slug: guide.slug }));
@@ -61,7 +56,7 @@ export default async function GuidePage({
         "@type": "Article",
         headline: guide.title,
         description: guide.description,
-        mainEntityOfPage: `${siteUrl}/guides/${guide.slug}`,
+        mainEntityOfPage: `${SITE_URL}/guides/${guide.slug}`,
         author: { "@type": "Organization", name: "查U地址" },
         publisher: { "@type": "Organization", name: "查U地址" },
         inLanguage: "zh-CN"
@@ -73,19 +68,19 @@ export default async function GuidePage({
             "@type": "ListItem",
             position: 1,
             name: "首页",
-            item: siteUrl
+            item: SITE_URL
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "使用指南",
-            item: `${siteUrl}/guides`
+            item: `${SITE_URL}/guides`
           },
           {
             "@type": "ListItem",
             position: 3,
             name: guide.shortTitle,
-            item: `${siteUrl}/guides/${guide.slug}`
+            item: `${SITE_URL}/guides/${guide.slug}`
           }
         ]
       },

@@ -30,15 +30,14 @@ npm run dev
 
 ```env
 NEXT_PUBLIC_TRONGRID_API_KEY=your_key
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
 GOOGLE_SITE_VERIFICATION=your_google_token
 ```
 
 GitHub Pages 是纯静态托管，因此该 Key 会被打包到浏览器代码中。它不是钱包私钥，
 但任何访客都可以查看和使用它。若不接受公开，请不要配置。
 
-`NEXT_PUBLIC_SITE_URL` 用于生成 Google 可识别的 canonical、`robots.txt`
-和 `sitemap.xml`。绑定正式域名后必须填写实际 HTTPS 地址。
+生产 SEO 域名固定为 `https://chaudizhi.com`，用于生成 Google 可识别的
+canonical、`robots.txt` 和 `sitemap.xml`。
 
 ## 部署到 GitHub Pages
 
@@ -48,10 +47,10 @@ GitHub Pages 是纯静态托管，因此该 Key 会被打包到浏览器代码�
 4. 推送到 `main` 或 `master` 分支。
 5. 等待 `Deploy to GitHub Pages` 工作流完成。
 
-工作流会自动识别普通项目仓库的子路径，例如：
+工作流会发布到自定义域名：
 
 ```text
-https://用户名.github.io/仓库名/
+https://chaudizhi.com/
 ```
 
 查询请求由访客浏览器直接发送到 TronGrid 和公开汇率 API，不需要服务器。
