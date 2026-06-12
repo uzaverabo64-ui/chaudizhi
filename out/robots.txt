@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
 
-Host: http://localhost:3100
-Sitemap: http://localhost:3100/sitemap.xml
+Host: https://chaudizhi.com
+Sitemap: https://chaudizhi.com/sitemap.xml
